@@ -4,7 +4,7 @@ const myImage = document.querySelector("img");
 myImage.onclick = () => {
   const mySrc = myImage.getAttribute("src");
   if (mySrc === "Images/funy.gif") {
-    myImage.setAttribute("src", "Images/image2.avif");
+    myImage.setAttribute("src", "Images/monkey.avif");
   } else {
     myImage.setAttribute("src", "Images/funy.gif");
   }
@@ -23,7 +23,7 @@ function setUserName() {
       setUserName();
     } else {
       localStorage.setItem("name", myName);
-      myHeading.textContent = `Mozilla is cool, ${myName}`;
+      myHeading.textContent = `Hello, ${myName} This is my site`;
     }
   }
   
@@ -33,7 +33,7 @@ function setUserName() {
     setUserName();
   } else {
     const storedName = localStorage.getItem("name");
-    myHeading.textContent = `Mozilla is cool, ${storedName}`;
+    myHeading.textContent = `Hello, ${storedName} This is my site`;
   }
 
   
