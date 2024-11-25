@@ -4,16 +4,23 @@ body {
     height: 100%;
 }
 
+h1{
+    font-size: xxx-large;
+    text-align: center;
+}
 
 header>hr{
-    border: 5px solid;
+    border: 5px solid beige;
 }
 nav{
     margin-left: 80%;
 }
 
 nav>hr{
-    border: 5px solid;
+    border: 5px solid beige;
+}
+div>hr{
+    border: 5px solid beige;
 }
 
 aside{
@@ -46,7 +53,7 @@ article>div{
 }
 
 article>hr{
-    border: 3px solid
+    border: 3px solid beige;
 }
 
 h2{
