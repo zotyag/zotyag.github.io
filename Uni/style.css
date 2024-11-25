@@ -4,9 +4,7 @@ body {
     height: 100%;
 }
 
-body>div>hr{
-    border: solid 5px;
-}
+
 header>hr{
     border: 5px solid;
 }
