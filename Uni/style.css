@@ -4,9 +4,14 @@ body {
     height: 100%;
 }
 
-
+body>div>hr{
+    border: solid 5px;
+}
 header>hr{
     border: 5px solid;
+}
+nav{
+    margin-left: 80%;
 }
 
 nav>hr{
@@ -69,6 +74,18 @@ kbd{
     border-radius: 10px;
 }
 
+img{
+    display: block;
+    max-width: 70%;
+    margin-left: auto;
+    margin-right: auto;
+}
 
+a:link {
+    color: lightgreen;
+}
+a:visited {
+    color: lightgreen;
+}
 
 
