@@ -1,8 +1,74 @@
 body {
     background-color: darkslategrey;
+    margin: 10px;
+    height: 100%;
 }
+
 
 header>hr{
     border: 5px solid;
 }
+
+nav>hr{
+    border: 5px solid;
+}
+
+aside{
+    height: 90vh;
+    width: 5%;
+    padding-left: 15px;
+    margin-left: 15px;
+    font-style: italic;
+    background-color: lightgray;
+    border: solid 5px lightgray;
+    border-radius: 30px;
+    position: fixed;
+    left: 95vw;
+    top:5%;
+}
+
+
+article{
+    color: beige;
+}
+
+article>div{
+    border: 2px solid tomato;
+    border-radius: 50px;
+    padding: 50px;
+    margin-left: 30%;
+    margin-right: 30%;
+    text-align: center;
+    margin-bottom: 100px;
+}
+
+article>hr{
+    border: 3px solid
+}
+
+h2{
+    font-size: xx-large;
+}
+
+article>p{
+    font-size: larger;
+}
+
+kbd{
+    display: inline;
+    font-family: Consolas,"courier new";
+    color: crimson;
+    background-color: #f1f1f1;
+    padding: 2px;
+    font-size: 105%;
+}
+
+#fo{
+    padding: 5px;
+    border: crimson solid 3px;
+    border-radius: 10px;
+}
+
+
+
 

