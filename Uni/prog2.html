@@ -1251,16 +1251,24 @@ printer<span class="token punctuation">.</span><span class="token function">acce
 <hr>
 <h3 id="header-95"><a href="#header-95"><strong>95. Mi a data stream?</strong></a></h3>
 <ul>
-<li>Adattípusok írására és olvasására szolgáló stream.<br>
-<strong>Példa:</strong> <code>DataInputStream</code>, <code>DataOutputStream</code>.</li>
+<li> Ez egy funkcionális programozási eszköz, amely lehetővé teszi az adatok feldolgozását egy adatfolyamként (stream). 
+    A Java stream nem tárolja az adatokat, hanem egy adatforrás (például gyűjtemények, tömbök vagy I/O csatornák) elemeit dolgozza fel sorban,
+    miközben különböző műveleteket végez rajtuk.<br></li><br>
+
+<li><strong>Típusok:</strong> Objektumok Stream-je, Primitívek Stream-je<br></li><br>
+<li><strong>Műveletek streameken:</strong> <ol><li>Intermediate (közbenső) műveletek pl.: <code>filter(Predicate<T>)</code></li>
+     <li>Terminal (végső) műveletek pl.: <code>count()</code></li></ol></li><br>
 </ul>
 <hr>
 <h3 id="header-96"><a href="#header-96"><strong>96. Mi az object stream?</strong></a></h3>
 <ul>
-<li>Objektumok sorosítására és deszerializálására használható.<br>
-<strong>Példa:</strong><pre><code class="language-java"><span class="token class-name">ObjectOutputStream</span> oos <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">ObjectOutputStream</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name">FileOutputStream</span><span class="token punctuation">(</span><span class="token string">"data.obj"</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-oos<span class="token punctuation">.</span><span class="token function">writeObject</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name">MyClass</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-oos<span class="token punctuation">.</span><span class="token function">close</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<li>Az objektum stream a Java Stream API általános típusa, amely bármilyen objektumot tartalmazhat.
+     Ez a leggyakrabban használt stream típus, mivel lehetővé teszi a Java-ban található összetett objektumok
+      (pl. String, Integer, ...) feldolgozását.<br>
+<strong>Példa:</strong><pre><code class="language-java"><span class="token class-name">
+    List &ltString&gt names = Arrays.asList("Alice", "Bob", "Charlie", "Anna");
+    names.stream().filter(name -> name.startsWith("A"))
+</span>
 </code></pre>
 </li>
 </ul>
@@ -1339,13 +1347,16 @@ oos<span class="token punctuation">.</span><span class="token function">close</s
 <hr>
 <h3 id="header-106"><a href="#header-106"><strong>106. A JAR eszköz mire való, milyen műveleteket lehet vele elvégezni?</strong></a></h3>
 <ul>
-<li>Java Archívum (JAR) fájlok létrehozására és kezelésére szolgál.</li>
+<li>Java Archívum (JAR) fájlok létrehozására és kezelésére szolgál.
+     Ez egy tömörített archívum, amely Java osztályfájlokat, erőforrásokat (például képeket, hangfájlokat),
+      metaadatokat és opcionálisan egy manifest fájlt tartalmaz. A JAR fájlok célja az alkalmazások és könyvtárak egyszerűbb terjesztése,
+       telepítése és futtatása.</li>
 <li>Használható csomagolásra, tömörítésre, futtatható fájlok készítésére.</li>
 </ul>
 <hr>
 <h3 id="header-107"><a href="#header-107"><strong>107. A JAR file „manifest”-jét mutassa be!</strong></a></h3>
 <ul>
-<li>Egy <strong><code>META-INF/MANIFEST.MF</code></strong> fájlban tárolt információkat tartalmaz (pl. fő osztály, osztályok listája).<br>
+<li>Egy <strong><code>META-INF/MANIFEST.MF</code></strong> fájlban tárolt információkat(metaadatokat) tartalmaz (pl. fő osztály, osztályok listája).<br>
 Példa:<pre><code class="language-text">Manifest-Version: 1.0
 Main-Class: com.example.Main
 </code></pre>
@@ -1400,6 +1411,107 @@ Main-Class: com.example.Main
 <pre><code class="language-java"><span class="token class-name">Optional</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">Integer</span><span class="token punctuation">&gt;</span></span> sum <span class="token operator">=</span> stream<span class="token punctuation">.</span><span class="token function">collect</span><span class="token punctuation">(</span><span class="token class-name">Collectors</span><span class="token punctuation">.</span><span class="token function">reducing</span><span class="token punctuation">(</span><span class="token class-name">Integer</span><span class="token operator">::</span><span class="token function">sum</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 </code></pre>
 </li>
+<h3>201. Mi az a Project Lombok?</h3>
+<ul>
+    <li>A Project Lombok egy Java könyvtár, amely egyszerűsíti a kódot azáltal, hogy automatikusan generál gettereket, settereket, toString-et, equals-t és más metódusokat fordítási időben.</li>
+    <li>Segítségével csökkenthető a boilerplate kód, így tisztább és karbantarthatóbb lesz a program.</li>
+</ul>
+
+<h3>202. Project Lombok-kal hogyan ad meg gettert, settert?</h3>
+<ul>
+    <li>A getterekhez és setterekhez az osztály adattagjai fölé helyezett <code>@Getter</code> és <code>@Setter</code> annotációkat használjuk.</li>
+    <li>Példa:
+        <pre><code>@Getter
+@Setter
+private String name;</code></pre>
+    </li>
+</ul>
+
+<h3>203. Project Lombok-kal hogyan ad meg toString-et?</h3>
+<ul>
+    <li>A <code>@ToString</code> annotációval automatikusan generálható egy toString metódus az osztályhoz.</li>
+    <li>Példa:
+        <pre><code>@ToString
+public class Person {
+    private String name;
+    private int age;
+}</code></pre>
+    </li>
+</ul>
+
+<h3>204. Project Lombok-kal hogyan ad meg equals-t és HashCode-ot?</h3>
+<ul>
+    <li>A <code>@EqualsAndHashCode</code> annotációval automatikusan generálható az equals és hashCode metódus.</li>
+    <li>Példa:
+        <pre><code>@EqualsAndHashCode
+public class Person {
+    private String name;
+    private int age;
+}</code></pre>
+    </li>
+</ul>
+
+<h3>205. A Jackson könyvtár segítségével milyen eszközök segítségével tud Stringbe illetve állományba írni JSON-t?</h3>
+<ul>
+    <li>A Jackson ObjectMapper osztályának <code>writeValueAsString()</code> metódusa JSON-t generál String formátumban.</li>
+    <li>A <code>writeValue(File file, Object obj)</code> metódussal JSON-t írhatunk fájlba.</li>
+</ul>
+
+<h3>206. A Jackson könyvtár segítségével milyen eszközök segítségével tud Stringből illetve állományból JSON-t olvasni?</h3>
+<ul>
+    <li>A Jackson ObjectMapper osztályának <code>readValue(String json, Class&lt;T&gt; valueType)</code> metódusa JSON-t olvas Stringből.</li>
+    <li>A <code>ObjectMapper.readValue(File file, Class&lt;T&gt; valueType)</code> metódussal JSON-t olvashatunk fájlból.</li>
+</ul>
+
+<h3>207. Soroljon fel és magyarázzon 3 Jackson annotációt!</h3>
+<ul>
+    <li><code>@JsonProperty</code>: Meghatározza, hogy egy mező milyen néven jelenjen meg a JSON-ben.</li>
+    <li><code>@JsonIgnore</code>: Kizárja a megjelölt mezőt a JSON-ből íráskor vagy olvasáskor.</li>
+    <li><code>@JsonFormat</code>: Meghatározza az idő- vagy dátumformátumot egy mezőnél (pl. "yyyy-MM-dd").</li>
+</ul>
+
+<h3>208. Az előadásanyag a Java Annotáció 3 használatát említette, melyek voltak ezek?</h3>
+<ul>
+    <li>Információ a fordító számára — Az annotációk használhatók a fordító által hibák észlelésére vagy figyelmeztetések elnyomására.</li>
+    <li>Fordítási idő és telepítési idő feldolgozása — Szoftvereszközök feldolgozhatják az annotációs információkat kód, XML fájlok stb. generálására.</li>
+    <li>Futásidejű feldolgozás — Egyes annotációk futásidőben is elérhetők és vizsgálhatók.</li>
+</ul>
+
+<h3>209. Mi az az annotáció interfész és mire lehet használni?</h3>
+<ul>
+    <li>Egy speciális interfész, amely metaadatokat biztosít a kódról (annotációkat definiál).</li>
+    <li>Például: meghatározhatjuk vele, hogy egy osztály vagy metódus milyen viselkedést kövessen (pl. tesztek jelölése).</li>
+</ul>
+
+<h3>210. Pythonban hogy néz ki egy osztály konstruktora?</h3>
+<ul>
+    <li>A Python konstruktor neve mindig: <code>__init__()</code>.</li>
+    <li>Példa:
+        <pre><code>class MyClass:
+    def __init__(self, name):
+        self.name = name</code></pre></li>
+</ul>
+
+<h3>211. Pythonban hogy lehet egy osztály példányszintű és osztályszintű adattagjait definiálni?</h3>
+<ul>
+    <li>Példányszintű adattag: Az objektum szintjén definiált attribútum (pl. self.name).</li>
+    <li>Osztályszintű adattag: Az osztály szintjén definiált attribútum (pl. class változó).</li>
+</ul>
+
+<h3>212. Python hogy néz ki az öröklés osztályok és interfészek között?</h3>
+<ul>
+    <li>Példa öröklésre:
+        <pre><code>class Parent:
+    pass
+
+class Child(Parent):
+    pass</code></pre></li>
+    <li>Interfészek: Pythonban nincs dedikált interfész fogalom, de egy osztály több osztályt is örökölhet, így több interfészhez hasonló struktúrát is képezhet.</li>
+</ul>
+
+<br>
+<br>
+<br>
 </ul>
 </main>
 </div>
